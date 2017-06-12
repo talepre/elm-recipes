@@ -1,0 +1,143 @@
+var _user$project$Recipes_Details$listBtn = A2(
+	_elm_lang$html$Html$a,
+	{
+		ctor: '::',
+		_0: _elm_lang$html$Html_Attributes$class('btn regular'),
+		_1: {
+			ctor: '::',
+			_0: _elm_lang$html$Html_Attributes$href(_user$project$Routing$recipesPath),
+			_1: {ctor: '[]'}
+		}
+	},
+	{
+		ctor: '::',
+		_0: A2(
+			_elm_lang$html$Html$i,
+			{
+				ctor: '::',
+				_0: _elm_lang$html$Html_Attributes$class('fa fa-chevron-left mr1'),
+				_1: {ctor: '[]'}
+			},
+			{ctor: '[]'}),
+		_1: {
+			ctor: '::',
+			_0: _elm_lang$html$Html$text('Oppskrifter'),
+			_1: {ctor: '[]'}
+		}
+	});
+var _user$project$Recipes_Details$formLevel = function (recipe) {
+	return A2(
+		_elm_lang$html$Html$div,
+		{
+			ctor: '::',
+			_0: _elm_lang$html$Html_Attributes$class('clearfix py1'),
+			_1: {ctor: '[]'}
+		},
+		{
+			ctor: '::',
+			_0: A2(
+				_elm_lang$html$Html$div,
+				{
+					ctor: '::',
+					_0: _elm_lang$html$Html_Attributes$class('italic'),
+					_1: {ctor: '[]'}
+				},
+				{
+					ctor: '::',
+					_0: _elm_lang$html$Html$text(recipe.ingredients),
+					_1: {ctor: '[]'}
+				}),
+			_1: {
+				ctor: '::',
+				_0: A2(
+					_elm_lang$html$Html$div,
+					{ctor: '[]'},
+					{
+						ctor: '::',
+						_0: _elm_lang$html$Html$text(recipe.description),
+						_1: {ctor: '[]'}
+					}),
+				_1: {ctor: '[]'}
+			}
+		});
+};
+var _user$project$Recipes_Details$form = function (recipe) {
+	var message = _user$project$Msgs$DeleteRecipe(recipe);
+	return A2(
+		_elm_lang$html$Html$div,
+		{
+			ctor: '::',
+			_0: _elm_lang$html$Html_Attributes$class('m3'),
+			_1: {ctor: '[]'}
+		},
+		{
+			ctor: '::',
+			_0: A2(
+				_elm_lang$html$Html$h1,
+				{ctor: '[]'},
+				{
+					ctor: '::',
+					_0: _elm_lang$html$Html$text(recipe.name),
+					_1: {
+						ctor: '::',
+						_0: A2(
+							_elm_lang$html$Html$a,
+							{
+								ctor: '::',
+								_0: _elm_lang$html$Html_Attributes$href(_user$project$Routing$recipesPath),
+								_1: {ctor: '[]'}
+							},
+							{
+								ctor: '::',
+								_0: A2(
+									_elm_lang$html$Html$i,
+									{
+										ctor: '::',
+										_0: _elm_lang$html$Html_Attributes$class('fa fa-trash-o ml2 red'),
+										_1: {
+											ctor: '::',
+											_0: _elm_lang$html$Html_Events$onClick(message),
+											_1: {ctor: '[]'}
+										}
+									},
+									{ctor: '[]'}),
+								_1: {ctor: '[]'}
+							}),
+						_1: {ctor: '[]'}
+					}
+				}),
+			_1: {
+				ctor: '::',
+				_0: _user$project$Recipes_Details$formLevel(recipe),
+				_1: {ctor: '[]'}
+			}
+		});
+};
+var _user$project$Recipes_Details$nav = function (model) {
+	return A2(
+		_elm_lang$html$Html$div,
+		{
+			ctor: '::',
+			_0: _elm_lang$html$Html_Attributes$class('clearfix mb2 white bg-black p1'),
+			_1: {ctor: '[]'}
+		},
+		{
+			ctor: '::',
+			_0: _user$project$Recipes_Details$listBtn,
+			_1: {ctor: '[]'}
+		});
+};
+var _user$project$Recipes_Details$view = function (model) {
+	return A2(
+		_elm_lang$html$Html$div,
+		{ctor: '[]'},
+		{
+			ctor: '::',
+			_0: _user$project$Recipes_Details$nav(model),
+			_1: {
+				ctor: '::',
+				_0: _user$project$Recipes_Details$form(model),
+				_1: {ctor: '[]'}
+			}
+		});
+};

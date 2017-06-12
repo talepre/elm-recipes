@@ -1,0 +1,28 @@
+var _user$project$Msgs$OnRecipeDelete = function (a) {
+	return {ctor: 'OnRecipeDelete', _0: a};
+};
+var _user$project$Msgs$DeleteRecipe = function (a) {
+	return {ctor: 'DeleteRecipe', _0: a};
+};
+var _user$project$Msgs$OnRecipeSave = function (a) {
+	return {ctor: 'OnRecipeSave', _0: a};
+};
+var _user$project$Msgs$AddRecipe = {ctor: 'AddRecipe'};
+var _user$project$Msgs$Description = function (a) {
+	return {ctor: 'Description', _0: a};
+};
+var _user$project$Msgs$Ingredients = function (a) {
+	return {ctor: 'Ingredients', _0: a};
+};
+var _user$project$Msgs$Name = function (a) {
+	return {ctor: 'Name', _0: a};
+};
+var _user$project$Msgs$Query = function (a) {
+	return {ctor: 'Query', _0: a};
+};
+var _user$project$Msgs$OnLocationChange = function (a) {
+	return {ctor: 'OnLocationChange', _0: a};
+};
+var _user$project$Msgs$OnFetchRecipes = function (a) {
+	return {ctor: 'OnFetchRecipes', _0: a};
+};

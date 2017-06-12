@@ -1,0 +1,58 @@
+var _user$project$View$notFoundView = A2(
+	_elm_lang$html$Html$div,
+	{ctor: '[]'},
+	{
+		ctor: '::',
+		_0: _elm_lang$html$Html$text('Not found'),
+		_1: {ctor: '[]'}
+	});
+var _user$project$View$recipeDetailsPage = F2(
+	function (model, recipeId) {
+		var _p0 = model.recipes;
+		switch (_p0.ctor) {
+			case 'NotAsked':
+				return _elm_lang$html$Html$text('');
+			case 'Loading':
+				return _elm_lang$html$Html$text('Loading ...');
+			case 'Success':
+				var maybeRecipe = _elm_lang$core$List$head(
+					A2(
+						_elm_lang$core$List$filter,
+						function (recipe) {
+							return _elm_lang$core$Native_Utils.eq(recipe.id, recipeId);
+						},
+						_p0._0));
+				var _p1 = maybeRecipe;
+				if (_p1.ctor === 'Just') {
+					return _user$project$Recipes_Details$view(_p1._0);
+				} else {
+					return _user$project$View$notFoundView;
+				}
+			default:
+				return _elm_lang$html$Html$text(
+					_elm_lang$core$Basics$toString(_p0._0));
+		}
+	});
+var _user$project$View$page = function (model) {
+	var _p2 = model.route;
+	switch (_p2.ctor) {
+		case 'RecipesRoute':
+			return _user$project$Recipes_List$view(model);
+		case 'RecipeRoute':
+			return A2(_user$project$View$recipeDetailsPage, model, _p2._0);
+		case 'AddRecipeRoute':
+			return _user$project$Recipes_Add$view;
+		default:
+			return _user$project$View$notFoundView;
+	}
+};
+var _user$project$View$view = function (model) {
+	return A2(
+		_elm_lang$html$Html$div,
+		{ctor: '[]'},
+		{
+			ctor: '::',
+			_0: _user$project$View$page(model),
+			_1: {ctor: '[]'}
+		});
+};

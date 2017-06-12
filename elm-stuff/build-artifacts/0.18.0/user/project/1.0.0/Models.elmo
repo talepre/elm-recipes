@@ -1,0 +1,22 @@
+var _user$project$Models$initialModel = F3(
+	function (route, query, recipe) {
+		return {recipes: _krisajenkins$remotedata$RemoteData$Loading, route: route, query: query, newRecipe: recipe};
+	});
+var _user$project$Models$Model = F4(
+	function (a, b, c, d) {
+		return {recipes: a, route: b, query: c, newRecipe: d};
+	});
+var _user$project$Models$Recipe = F4(
+	function (a, b, c, d) {
+		return {id: a, name: b, ingredients: c, description: d};
+	});
+var _user$project$Models$NewRecipe = F3(
+	function (a, b, c) {
+		return {name: a, ingredients: b, description: c};
+	});
+var _user$project$Models$NotFoundRoute = {ctor: 'NotFoundRoute'};
+var _user$project$Models$AddRecipeRoute = {ctor: 'AddRecipeRoute'};
+var _user$project$Models$RecipeRoute = function (a) {
+	return {ctor: 'RecipeRoute', _0: a};
+};
+var _user$project$Models$RecipesRoute = {ctor: 'RecipesRoute'};

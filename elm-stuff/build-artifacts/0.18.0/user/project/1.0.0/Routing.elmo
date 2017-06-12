@@ -1,0 +1,43 @@
+var _user$project$Routing$addRecipePath = '#addrecipe';
+var _user$project$Routing$recipePath = function (id) {
+	return A2(_elm_lang$core$Basics_ops['++'], '#recipes/', id);
+};
+var _user$project$Routing$recipesPath = '#recipes';
+var _user$project$Routing$matchers = _evancz$url_parser$UrlParser$oneOf(
+	{
+		ctor: '::',
+		_0: A2(_evancz$url_parser$UrlParser$map, _user$project$Models$RecipesRoute, _evancz$url_parser$UrlParser$top),
+		_1: {
+			ctor: '::',
+			_0: A2(
+				_evancz$url_parser$UrlParser$map,
+				_user$project$Models$RecipeRoute,
+				A2(
+					_evancz$url_parser$UrlParser_ops['</>'],
+					_evancz$url_parser$UrlParser$s('recipes'),
+					_evancz$url_parser$UrlParser$string)),
+			_1: {
+				ctor: '::',
+				_0: A2(
+					_evancz$url_parser$UrlParser$map,
+					_user$project$Models$RecipesRoute,
+					_evancz$url_parser$UrlParser$s('recipes')),
+				_1: {
+					ctor: '::',
+					_0: A2(
+						_evancz$url_parser$UrlParser$map,
+						_user$project$Models$AddRecipeRoute,
+						_evancz$url_parser$UrlParser$s('addrecipe')),
+					_1: {ctor: '[]'}
+				}
+			}
+		}
+	});
+var _user$project$Routing$parseLocation = function (location) {
+	var _p0 = A2(_evancz$url_parser$UrlParser$parseHash, _user$project$Routing$matchers, location);
+	if (_p0.ctor === 'Just') {
+		return _p0._0;
+	} else {
+		return _user$project$Models$NotFoundRoute;
+	}
+};

@@ -1,0 +1,52 @@
+{
+  "recipes": [
+    {
+      "id": "1",
+      "name": "Banan is",
+      "ingredients": "banan, vann",
+      "description": "bland sammen"
+    },
+    {
+      "id": "2",
+      "name": "Banan is",
+      "ingredients": "banan, vann",
+      "description": "bland sammen"
+    },
+    {
+      "id": "3",
+      "name": "Banan is",
+      "ingredients": "banan, vann",
+      "description": "bland sammen"
+    },
+    {
+      "id": "4",
+      "name": "Banan is",
+      "ingredients": "banan, vann",
+      "description": "bland sammen"
+    },
+    {
+      "id": "5",
+      "name": "Banan is",
+      "ingredients": "banan, vann",
+      "description": "bland sammen"
+    },
+    {
+      "id": "6",
+      "name": "Banan is",
+      "ingredients": "banan, vann",
+      "description": "bland sammen"
+    },
+    {
+      "id": "8",
+      "name": "Banan is",
+      "ingredients": "banan, vann",
+      "description": "bland sammen"
+    },
+    {
+      "id": "7",
+      "name": "Sjokoladeboller",
+      "ingredients": "melis, kokos, sjokolade",
+      "description": "bland melis og kokos, dypp i sjokolade"
+    }
+  ]
+}
