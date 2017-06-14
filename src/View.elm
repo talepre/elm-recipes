@@ -25,7 +25,7 @@ page model =
             recipeDetailsPage model id
 
         Models.AddRecipeRoute ->
-            Recipes.Add.view
+            Recipes.Add.view model
             
         Models.NotFoundRoute ->
             notFoundView

@@ -27,14 +27,6 @@ update msg model =
                     { preNewRecipe | name = newName }           
             in
                 ( {model | newRecipe = newRecipe}, Cmd.none )
-        --Msgs.Ingredients newIngredients ->
-        --    let
-        --        preNewRecipe =
-        --            model.newRecipe
-        --        newRecipe =
-        --            { preNewRecipe | ingredients = newIngredients }           
-        --    in
-        --        ( {model | newRecipe = newRecipe}, Cmd.none )
         Msgs.Description newDescription ->
             let
                 preNewRecipe =
@@ -64,6 +56,28 @@ update msg model =
             ( { model | ingredients = response }, Cmd.none )
         Msgs.OnFetchUnits response ->
             ( { model | units = response }, Cmd.none )
+        Msgs.AddIngredientField ->
+            let
+                newRecipe =
+                    model.newRecipe
+                emptyIngredient =
+                    [{ ingredientId = "",
+                    unitId = "",
+                    amount = 0
+                    }]
+                newIngredientList =
+                    newRecipe.ingredients ++ emptyIngredient
+                updatedNewRecipe =
+                    { newRecipe | ingredients = newIngredientList }
+            in
+                ( { model | newRecipe = updatedNewRecipe }, Cmd.none )
+        Msgs.UnitId newUnitId ->
+            ( model, Cmd.none )
+        Msgs.IngredientId newIngredientId ->
+            ( model, Cmd.none )
+        Msgs.Amount newAmount ->
+            ( model, Cmd.none )
+                    
 
 updateRecipe : Recipe -> Model -> Model
 updateRecipe newRecipe model =

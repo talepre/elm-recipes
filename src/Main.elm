@@ -15,8 +15,9 @@ init location =
             Routing.parseLocation location
         emptyRecipe =
             { name = ""
-            --, ingredients = ""
+            , ingredients = []
             , description = ""
+            , directions = ""
             }
     in
         ( initialModel currentRoute "" emptyRecipe, Cmd.batch [fetchRecipes, fetchIngredients, fetchUnits])

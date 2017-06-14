@@ -65,7 +65,7 @@ filterList recipes query =
 
 recipeBox : Recipe -> Html Msg
 recipeBox recipe =
-    div [ class "col-4 p2" ]
+    div [ class "col-2 p2" ]
         [ div [class "overflow-hidden border border-olive"]    
             [ div [class "caps bold bg-olive white"] [ text recipe.name]
             , div [] [ text recipe.description ]

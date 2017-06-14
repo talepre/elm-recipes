@@ -11,7 +11,6 @@ type Msg
     | OnLocationChange Location
     | Query String
     | Name String
-    --| Ingredients String
     | Description String
     | AddRecipe
     | OnRecipeSave (Result Http.Error Recipe)
@@ -19,3 +18,7 @@ type Msg
     | OnRecipeDelete (Result Http.Error Bool)
     | OnFetchIngredients (WebData (List Ingredient))
     | OnFetchUnits (WebData (List Unit))
+    | AddIngredientField
+    | UnitId String
+    | IngredientId String
+    | Amount String

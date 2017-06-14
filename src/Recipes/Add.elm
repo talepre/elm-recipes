@@ -5,13 +5,14 @@ import Html.Attributes exposing (..)
 import Html.Events exposing (onInput, onClick)
 import Routing exposing (recipesPath, addRecipePath)
 import Msgs exposing (Msg)
+import Models exposing (Model, NewRecipe, IngredientInfo)
 
-view : Html Msg
-view =
+view : Model -> Html Msg
+view model =
     div [][
     nav,
     header,
-    form]
+    form model.newRecipe]
 
 nav : Html Msg
 nav =
@@ -23,16 +24,25 @@ header : Html Msg
 header =
         div [class"h2 m2"][text "Legg til"]
 
-form : Html Msg
-form =
+form : NewRecipe -> Html Msg
+form newRecipe =
     div [class "clearfix"][
-        div[class "col col-2 m2"]
+        div[class "col col-3 m2"]
             [input [ class "input", type_ "text", placeholder "Navn", onInput Msgs.Name ] []
             , input [ class "input", type_ "text", placeholder "Beskrivelse", onInput Msgs.Description ] []
-            , a [class "btn regular btn-outline olive", href recipesPath, onClick Msgs.AddRecipe][text "Lagre"] ]
+            , div [ class "btn regular btn-outline olive col-12", onClick Msgs.AddIngredientField ][text "Legg til ingrediens"]
+            , div [] (List.map addInputField (newRecipe.ingredients))
+            , input [ class "input", type_ "text", placeholder "Framgangsmåte" ] []
+            , a [class "btn regular btn-outline olive col-12", href recipesPath, onClick Msgs.AddRecipe][text "Lagre"] ]
         
         , div[class "col col-6"][]]
 
+addInputField : IngredientInfo -> Html Msg
+addInputField ingredientInfo = 
+    div [][
+    input[class "col-3", type_ "text", placeholder "Mengde", onInput Msgs.Amount][],
+    input[class "col-3", type_ "text", placeholder "Benevning", onInput Msgs.UnitId][],
+    input[class "col-3", type_ "text", placeholder "Ingrediens", onInput Msgs.IngredientId][]]
 
 listBtn : Html Msg
 listBtn =

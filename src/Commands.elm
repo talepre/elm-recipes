@@ -82,9 +82,24 @@ newRecipeEncoder newRecipe =
         attributes = 
             [ ( "name", Encode.string newRecipe.name )
             , ( "description", Encode.string newRecipe.description )
+            , ( "directions", Encode.string newRecipe.directions )
+            , ( "ingredients", Encode.list (List.map ingredientInfoEncoder newRecipe.ingredients))
             ]
     in
         Encode.object attributes
+
+ingredientInfoEncoder : IngredientInfo -> Encode.Value
+ingredientInfoEncoder ingredientInfo =
+    let
+        attributes =
+            [ ("ingredientId", Encode.string ingredientInfo.ingredientId)
+            , ("unitId", Encode.string ingredientInfo.unitId)
+            , ("amount", Encode.int ingredientInfo.amount )
+            ]
+            
+    in
+        Encode.object attributes
+            
 
 
 deleteRecipeUrl : RecipeId -> String

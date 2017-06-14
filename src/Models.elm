@@ -13,11 +13,11 @@ type alias Model =
     }
 
 initialModel : Route -> Query -> NewRecipe -> Model
-initialModel route query recipe =
+initialModel route query newRecipe =
     { recipes = RemoteData.Loading
     , route = route
     , query = query
-    , newRecipe = recipe
+    , newRecipe = newRecipe
     , ingredients = RemoteData.Loading
     , units = RemoteData.Loading
     }
@@ -47,7 +47,9 @@ type alias DisplayIngredientInfo =
 
 type alias NewRecipe =
     { name : String
+    , ingredients : List IngredientInfo
     , description : String
+    , directions : String
     }
 
 type alias IngredientId =
