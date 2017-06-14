@@ -75,10 +75,10 @@ var _user$project$Recipes_Add$form = A2(
 								_0: _elm_lang$html$Html_Attributes$type_('text'),
 								_1: {
 									ctor: '::',
-									_0: _elm_lang$html$Html_Attributes$placeholder('Ingredienser'),
+									_0: _elm_lang$html$Html_Attributes$placeholder('Beskrivelse'),
 									_1: {
 										ctor: '::',
-										_0: _elm_lang$html$Html_Events$onInput(_user$project$Msgs$Ingredients),
+										_0: _elm_lang$html$Html_Events$onInput(_user$project$Msgs$Description),
 										_1: {ctor: '[]'}
 									}
 								}
@@ -88,49 +88,26 @@ var _user$project$Recipes_Add$form = A2(
 					_1: {
 						ctor: '::',
 						_0: A2(
-							_elm_lang$html$Html$input,
+							_elm_lang$html$Html$a,
 							{
 								ctor: '::',
-								_0: _elm_lang$html$Html_Attributes$class('input'),
+								_0: _elm_lang$html$Html_Attributes$class('btn regular btn-outline olive'),
 								_1: {
 									ctor: '::',
-									_0: _elm_lang$html$Html_Attributes$type_('text'),
+									_0: _elm_lang$html$Html_Attributes$href(_user$project$Routing$recipesPath),
 									_1: {
 										ctor: '::',
-										_0: _elm_lang$html$Html_Attributes$placeholder('Framgangsmåte'),
-										_1: {
-											ctor: '::',
-											_0: _elm_lang$html$Html_Events$onInput(_user$project$Msgs$Description),
-											_1: {ctor: '[]'}
-										}
+										_0: _elm_lang$html$Html_Events$onClick(_user$project$Msgs$AddRecipe),
+										_1: {ctor: '[]'}
 									}
 								}
 							},
-							{ctor: '[]'}),
-						_1: {
-							ctor: '::',
-							_0: A2(
-								_elm_lang$html$Html$a,
-								{
-									ctor: '::',
-									_0: _elm_lang$html$Html_Attributes$class('btn regular btn-outline'),
-									_1: {
-										ctor: '::',
-										_0: _elm_lang$html$Html_Attributes$href(_user$project$Routing$recipesPath),
-										_1: {
-											ctor: '::',
-											_0: _elm_lang$html$Html_Events$onClick(_user$project$Msgs$AddRecipe),
-											_1: {ctor: '[]'}
-										}
-									}
-								},
-								{
-									ctor: '::',
-									_0: _elm_lang$html$Html$text('Lagre'),
-									_1: {ctor: '[]'}
-								}),
-							_1: {ctor: '[]'}
-						}
+							{
+								ctor: '::',
+								_0: _elm_lang$html$Html$text('Lagre'),
+								_1: {ctor: '[]'}
+							}),
+						_1: {ctor: '[]'}
 					}
 				}
 			}),
@@ -163,7 +140,7 @@ var _user$project$Recipes_Add$nav = A2(
 	_elm_lang$html$Html$div,
 	{
 		ctor: '::',
-		_0: _elm_lang$html$Html_Attributes$class('clearfix mb2 white bg-black'),
+		_0: _elm_lang$html$Html_Attributes$class('clearfix mb2 white bg-olive'),
 		_1: {ctor: '[]'}
 	},
 	{

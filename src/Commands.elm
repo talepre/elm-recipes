@@ -5,18 +5,38 @@ import Json.Decode as Decode
 import Json.Encode as Encode
 import Json.Decode.Pipeline exposing (decode, required)
 import Msgs exposing (Msg)
-import Models exposing (Recipe, NewRecipe, RecipeId)
+import Models exposing (Recipe, NewRecipe, RecipeId, Ingredient, IngredientId, IngredientInfo, Unit)
 import RemoteData
 
 
 fetchRecipes : Cmd Msg
 fetchRecipes =
-    Http.get fetchRecipesUrl recipesDecoder
+    Http.get recipesUrl recipesDecoder
      |> RemoteData.sendRequest
      |> Cmd.map Msgs.OnFetchRecipes
 
-fetchRecipesUrl : String
-fetchRecipesUrl = 
+fetchIngredients : Cmd Msg
+fetchIngredients =
+    Http.get ingredientsUrl ingredientsDecoder
+     |> RemoteData.sendRequest
+     |> Cmd.map Msgs.OnFetchIngredients
+
+ingredientsDecoder : Decode.Decoder (List Ingredient)
+ingredientsDecoder = 
+    Decode.list ingredientDecoder
+
+ingredientDecoder : Decode.Decoder Ingredient
+ingredientDecoder =
+    decode Ingredient
+        |> required "id" Decode.string
+        |> required "name" Decode.string
+
+ingredientsUrl : String
+ingredientsUrl = 
+    "http://localhost:4000/ingredients"
+
+recipesUrl : String
+recipesUrl = 
     "http://localhost:4000/recipes"
 
 recipesDecoder : Decode.Decoder (List Recipe)
@@ -28,12 +48,16 @@ recipeDecoder =
     decode Recipe
         |> required "id" Decode.string
         |> required "name" Decode.string
-        |> required "ingredients" Decode.string
+        |> required "ingredients" (Decode.list ingredientInfoDecoder)
         |> required "description" Decode.string
+        |> required "directions" Decode.string
 
-saveRecipeUrl : String
-saveRecipeUrl =
-    "http://localhost:4000/recipes"
+ingredientInfoDecoder: Decode.Decoder IngredientInfo
+ingredientInfoDecoder =
+    decode IngredientInfo
+        |> required "ingredientId" Decode.string
+        |> required "unitId" Decode.string
+        |> required "amount" Decode.int
 
 saveRecipeRequest : NewRecipe -> Http.Request Recipe
 saveRecipeRequest newRecipe =
@@ -43,7 +67,7 @@ saveRecipeRequest newRecipe =
         , headers = []
         , method = "POST"
         , timeout = Nothing
-        , url = saveRecipeUrl
+        , url = recipesUrl
         , withCredentials = False
         }
 
@@ -57,7 +81,6 @@ newRecipeEncoder newRecipe =
     let
         attributes = 
             [ ( "name", Encode.string newRecipe.name )
-            , ( "ingredients", Encode.string newRecipe.ingredients )
             , ( "description", Encode.string newRecipe.description )
             ]
     in
@@ -84,4 +107,23 @@ deleteRecipeCmd : Recipe -> Cmd Msg
 deleteRecipeCmd recipe =
     deleteRecipeRequest recipe
         |> Http.send Msgs.OnRecipeDelete
-            
+
+fetchUnits : Cmd Msg
+fetchUnits =
+    Http.get unitsUrl unitsDecoder
+     |> RemoteData.sendRequest
+     |> Cmd.map Msgs.OnFetchUnits
+
+unitsDecoder : Decode.Decoder (List Unit)
+unitsDecoder = 
+    Decode.list unitDecoder
+
+unitDecoder : Decode.Decoder Unit
+unitDecoder =
+    decode Unit
+        |> required "id" Decode.string
+        |> required "name" Decode.string
+
+unitsUrl : String
+unitsUrl = 
+    "http://localhost:4000/units"

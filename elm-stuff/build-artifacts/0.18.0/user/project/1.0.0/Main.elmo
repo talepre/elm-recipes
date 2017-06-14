@@ -2,12 +2,25 @@ var _user$project$Main$subscriptions = function (model) {
 	return _elm_lang$core$Platform_Sub$none;
 };
 var _user$project$Main$init = function (location) {
-	var emptyRecipe = {name: '', ingredients: '', description: ''};
+	var emptyRecipe = {name: '', description: ''};
 	var currentRoute = _user$project$Routing$parseLocation(location);
 	return {
 		ctor: '_Tuple2',
 		_0: A3(_user$project$Models$initialModel, currentRoute, '', emptyRecipe),
-		_1: _user$project$Commands$fetchRecipes
+		_1: _elm_lang$core$Platform_Cmd$batch(
+			{
+				ctor: '::',
+				_0: _user$project$Commands$fetchRecipes,
+				_1: {
+					ctor: '::',
+					_0: _user$project$Commands$fetchIngredients,
+					_1: {
+						ctor: '::',
+						_0: _user$project$Commands$fetchUnits,
+						_1: {ctor: '[]'}
+					}
+				}
+			})
 	};
 };
 var _user$project$Main$main = A2(

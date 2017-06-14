@@ -24,7 +24,7 @@ var _user$project$View$recipeDetailsPage = F2(
 						_p0._0));
 				var _p1 = maybeRecipe;
 				if (_p1.ctor === 'Just') {
-					return _user$project$Recipes_Details$view(_p1._0);
+					return A2(_user$project$Recipes_Details$view, _p1._0, model);
 				} else {
 					return _user$project$View$notFoundView;
 				}

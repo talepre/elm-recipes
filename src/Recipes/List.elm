@@ -19,7 +19,7 @@ view model =
 
 nav : Html Msg
 nav =
-    div [ class "clearfix mb2 white bg-black" ]
+    div [ class "clearfix mb2 bg-olive" ]
         [a [ class "left p2 white", href recipesPath ] [ text "Oppskrifter" ],
          a [ class "left p2 white", href addRecipePath ] [ text "Legg til oppskrift" ]
         ]
@@ -57,11 +57,7 @@ filterList : List Recipe -> Query -> Html Msg
 filterList recipes query =
     let
         filterRecipes =
-            let
-                filterByName =
-                    List.filter (\r -> (String.contains (String.toLower query) (String.toLower r.name))) recipes        
-            in
-                List.filter (\r -> (String.contains (String.toLower query) (String.toLower r.ingredients))) recipes
+            List.filter (\r -> (String.contains (String.toLower query) (String.toLower r.name))) recipes
     in
         div [ class "flex flex-wrap"](List.map recipeBox filterRecipes)
         
@@ -70,9 +66,8 @@ filterList recipes query =
 recipeBox : Recipe -> Html Msg
 recipeBox recipe =
     div [ class "col-4 p2" ]
-        [ div [class "overflow-hidden border rounded"]    
-            [ div [class "caps white bg-black"] [ text recipe.name]
-            , div [] [ text recipe.ingredients ]
+        [ div [class "overflow-hidden border border-olive"]    
+            [ div [class "caps bold bg-olive white"] [ text recipe.name]
             , div [] [ text recipe.description ]
             , div [] [ detailBtn recipe ]
             ]

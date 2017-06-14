@@ -1,3 +1,19 @@
+var _user$project$Commands$unitsUrl = 'http://localhost:4000/units';
+var _user$project$Commands$unitDecoder = A3(
+	_NoRedInk$elm_decode_pipeline$Json_Decode_Pipeline$required,
+	'name',
+	_elm_lang$core$Json_Decode$string,
+	A3(
+		_NoRedInk$elm_decode_pipeline$Json_Decode_Pipeline$required,
+		'id',
+		_elm_lang$core$Json_Decode$string,
+		_NoRedInk$elm_decode_pipeline$Json_Decode_Pipeline$decode(_user$project$Models$Unit)));
+var _user$project$Commands$unitsDecoder = _elm_lang$core$Json_Decode$list(_user$project$Commands$unitDecoder);
+var _user$project$Commands$fetchUnits = A2(
+	_elm_lang$core$Platform_Cmd$map,
+	_user$project$Msgs$OnFetchUnits,
+	_krisajenkins$remotedata$RemoteData$sendRequest(
+		A2(_elm_lang$http$Http$get, _user$project$Commands$unitsUrl, _user$project$Commands$unitsDecoder)));
 var _user$project$Commands$deleteRecipeUrl = function (recipeId) {
 	return A2(_elm_lang$core$Basics_ops['++'], 'http://localhost:4000/recipes/', recipeId);
 };
@@ -31,40 +47,50 @@ var _user$project$Commands$newRecipeEncoder = function (newRecipe) {
 			ctor: '::',
 			_0: {
 				ctor: '_Tuple2',
-				_0: 'ingredients',
-				_1: _elm_lang$core$Json_Encode$string(newRecipe.ingredients)
+				_0: 'description',
+				_1: _elm_lang$core$Json_Encode$string(newRecipe.description)
 			},
-			_1: {
-				ctor: '::',
-				_0: {
-					ctor: '_Tuple2',
-					_0: 'description',
-					_1: _elm_lang$core$Json_Encode$string(newRecipe.description)
-				},
-				_1: {ctor: '[]'}
-			}
+			_1: {ctor: '[]'}
 		}
 	};
 	return _elm_lang$core$Json_Encode$object(attributes);
 };
-var _user$project$Commands$saveRecipeUrl = 'http://localhost:4000/recipes';
-var _user$project$Commands$recipeDecoder = A3(
+var _user$project$Commands$ingredientInfoDecoder = A3(
 	_NoRedInk$elm_decode_pipeline$Json_Decode_Pipeline$required,
-	'description',
-	_elm_lang$core$Json_Decode$string,
+	'amount',
+	_elm_lang$core$Json_Decode$int,
 	A3(
 		_NoRedInk$elm_decode_pipeline$Json_Decode_Pipeline$required,
-		'ingredients',
+		'unitId',
 		_elm_lang$core$Json_Decode$string,
 		A3(
 			_NoRedInk$elm_decode_pipeline$Json_Decode_Pipeline$required,
-			'name',
+			'ingredientId',
 			_elm_lang$core$Json_Decode$string,
+			_NoRedInk$elm_decode_pipeline$Json_Decode_Pipeline$decode(_user$project$Models$IngredientInfo))));
+var _user$project$Commands$recipeDecoder = A3(
+	_NoRedInk$elm_decode_pipeline$Json_Decode_Pipeline$required,
+	'directions',
+	_elm_lang$core$Json_Decode$string,
+	A3(
+		_NoRedInk$elm_decode_pipeline$Json_Decode_Pipeline$required,
+		'description',
+		_elm_lang$core$Json_Decode$string,
+		A3(
+			_NoRedInk$elm_decode_pipeline$Json_Decode_Pipeline$required,
+			'ingredients',
+			_elm_lang$core$Json_Decode$list(_user$project$Commands$ingredientInfoDecoder),
 			A3(
 				_NoRedInk$elm_decode_pipeline$Json_Decode_Pipeline$required,
-				'id',
+				'name',
 				_elm_lang$core$Json_Decode$string,
-				_NoRedInk$elm_decode_pipeline$Json_Decode_Pipeline$decode(_user$project$Models$Recipe)))));
+				A3(
+					_NoRedInk$elm_decode_pipeline$Json_Decode_Pipeline$required,
+					'id',
+					_elm_lang$core$Json_Decode$string,
+					_NoRedInk$elm_decode_pipeline$Json_Decode_Pipeline$decode(_user$project$Models$Recipe))))));
+var _user$project$Commands$recipesDecoder = _elm_lang$core$Json_Decode$list(_user$project$Commands$recipeDecoder);
+var _user$project$Commands$recipesUrl = 'http://localhost:4000/recipes';
 var _user$project$Commands$saveRecipeRequest = function (newRecipe) {
 	return _elm_lang$http$Http$request(
 		{
@@ -74,7 +100,7 @@ var _user$project$Commands$saveRecipeRequest = function (newRecipe) {
 			headers: {ctor: '[]'},
 			method: 'POST',
 			timeout: _elm_lang$core$Maybe$Nothing,
-			url: _user$project$Commands$saveRecipeUrl,
+			url: _user$project$Commands$recipesUrl,
 			withCredentials: false
 		});
 };
@@ -84,10 +110,24 @@ var _user$project$Commands$saveRecipeCmd = function (newRecipe) {
 		_user$project$Msgs$OnRecipeSave,
 		_user$project$Commands$saveRecipeRequest(newRecipe));
 };
-var _user$project$Commands$recipesDecoder = _elm_lang$core$Json_Decode$list(_user$project$Commands$recipeDecoder);
-var _user$project$Commands$fetchRecipesUrl = 'http://localhost:4000/recipes';
+var _user$project$Commands$ingredientsUrl = 'http://localhost:4000/ingredients';
+var _user$project$Commands$ingredientDecoder = A3(
+	_NoRedInk$elm_decode_pipeline$Json_Decode_Pipeline$required,
+	'name',
+	_elm_lang$core$Json_Decode$string,
+	A3(
+		_NoRedInk$elm_decode_pipeline$Json_Decode_Pipeline$required,
+		'id',
+		_elm_lang$core$Json_Decode$string,
+		_NoRedInk$elm_decode_pipeline$Json_Decode_Pipeline$decode(_user$project$Models$Ingredient)));
+var _user$project$Commands$ingredientsDecoder = _elm_lang$core$Json_Decode$list(_user$project$Commands$ingredientDecoder);
+var _user$project$Commands$fetchIngredients = A2(
+	_elm_lang$core$Platform_Cmd$map,
+	_user$project$Msgs$OnFetchIngredients,
+	_krisajenkins$remotedata$RemoteData$sendRequest(
+		A2(_elm_lang$http$Http$get, _user$project$Commands$ingredientsUrl, _user$project$Commands$ingredientsDecoder)));
 var _user$project$Commands$fetchRecipes = A2(
 	_elm_lang$core$Platform_Cmd$map,
 	_user$project$Msgs$OnFetchRecipes,
 	_krisajenkins$remotedata$RemoteData$sendRequest(
-		A2(_elm_lang$http$Http$get, _user$project$Commands$fetchRecipesUrl, _user$project$Commands$recipesDecoder)));
+		A2(_elm_lang$http$Http$get, _user$project$Commands$recipesUrl, _user$project$Commands$recipesDecoder)));

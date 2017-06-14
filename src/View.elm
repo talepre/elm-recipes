@@ -11,7 +11,7 @@ import RemoteData
 
 view : Model -> Html Msg
 view model =
-    div []
+    div [ ]
         [ page model ]
 
 
@@ -49,7 +49,7 @@ recipeDetailsPage model recipeId =
             in
                 case maybeRecipe of
                     Just recipe ->
-                        Recipes.Details.view recipe
+                        Recipes.Details.view recipe model
 
                     Nothing ->
                         notFoundView

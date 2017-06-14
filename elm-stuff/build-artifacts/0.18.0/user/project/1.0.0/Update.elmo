@@ -53,18 +53,6 @@ var _user$project$Update$update = F2(
 						{newRecipe: newRecipe}),
 					_1: _elm_lang$core$Platform_Cmd$none
 				};
-			case 'Ingredients':
-				var preNewRecipe = model.newRecipe;
-				var newRecipe = _elm_lang$core$Native_Utils.update(
-					preNewRecipe,
-					{ingredients: _p0._0});
-				return {
-					ctor: '_Tuple2',
-					_0: _elm_lang$core$Native_Utils.update(
-						model,
-						{newRecipe: newRecipe}),
-					_1: _elm_lang$core$Platform_Cmd$none
-				};
 			case 'Description':
 				var preNewRecipe = model.newRecipe;
 				var newRecipe = _elm_lang$core$Native_Utils.update(
@@ -100,11 +88,27 @@ var _user$project$Update$update = F2(
 					_0: model,
 					_1: _user$project$Commands$deleteRecipeCmd(_p0._0)
 				};
-			default:
+			case 'OnRecipeDelete':
 				if (_p0._0.ctor === 'Ok') {
 					return {ctor: '_Tuple2', _0: model, _1: _elm_lang$core$Platform_Cmd$none};
 				} else {
 					return {ctor: '_Tuple2', _0: model, _1: _elm_lang$core$Platform_Cmd$none};
 				}
+			case 'OnFetchIngredients':
+				return {
+					ctor: '_Tuple2',
+					_0: _elm_lang$core$Native_Utils.update(
+						model,
+						{ingredients: _p0._0}),
+					_1: _elm_lang$core$Platform_Cmd$none
+				};
+			default:
+				return {
+					ctor: '_Tuple2',
+					_0: _elm_lang$core$Native_Utils.update(
+						model,
+						{units: _p0._0}),
+					_1: _elm_lang$core$Platform_Cmd$none
+				};
 		}
 	});

@@ -15,7 +15,7 @@ view =
 
 nav : Html Msg
 nav =
-    div [ class "clearfix mb2 white bg-black" ]
+    div [ class "clearfix mb2 white bg-olive" ]
         [a [ class "left p2 white", href recipesPath ] [ text "Oppskrifter" ],
          a [ class "left p2 white", href addRecipePath ] [ text "Legg til oppskrift" ]
         ]
@@ -28,9 +28,8 @@ form =
     div [class "clearfix"][
         div[class "col col-2 m2"]
             [input [ class "input", type_ "text", placeholder "Navn", onInput Msgs.Name ] []
-            , input [ class "input", type_ "text", placeholder "Ingredienser", onInput Msgs.Ingredients ] []
-            , input [ class "input", type_ "text", placeholder "Framgangsmåte", onInput Msgs.Description ] []
-            , a [class "btn regular btn-outline", href recipesPath, onClick Msgs.AddRecipe][text "Lagre"] ]
+            , input [ class "input", type_ "text", placeholder "Beskrivelse", onInput Msgs.Description ] []
+            , a [class "btn regular btn-outline olive", href recipesPath, onClick Msgs.AddRecipe][text "Lagre"] ]
         
         , div[class "col col-6"][]]
 

@@ -31,7 +31,7 @@ var _user$project$Recipes_List$recipeBox = function (recipe) {
 				_elm_lang$html$Html$div,
 				{
 					ctor: '::',
-					_0: _elm_lang$html$Html_Attributes$class('overflow-hidden border rounded'),
+					_0: _elm_lang$html$Html_Attributes$class('overflow-hidden border border-olive'),
 					_1: {ctor: '[]'}
 				},
 				{
@@ -40,7 +40,7 @@ var _user$project$Recipes_List$recipeBox = function (recipe) {
 						_elm_lang$html$Html$div,
 						{
 							ctor: '::',
-							_0: _elm_lang$html$Html_Attributes$class('caps white bg-black'),
+							_0: _elm_lang$html$Html_Attributes$class('caps bold bg-olive white'),
 							_1: {ctor: '[]'}
 						},
 						{
@@ -55,7 +55,7 @@ var _user$project$Recipes_List$recipeBox = function (recipe) {
 							{ctor: '[]'},
 							{
 								ctor: '::',
-								_0: _elm_lang$html$Html$text(recipe.ingredients),
+								_0: _elm_lang$html$Html$text(recipe.description),
 								_1: {ctor: '[]'}
 							}),
 						_1: {
@@ -65,21 +65,10 @@ var _user$project$Recipes_List$recipeBox = function (recipe) {
 								{ctor: '[]'},
 								{
 									ctor: '::',
-									_0: _elm_lang$html$Html$text(recipe.description),
+									_0: _user$project$Recipes_List$detailBtn(recipe),
 									_1: {ctor: '[]'}
 								}),
-							_1: {
-								ctor: '::',
-								_0: A2(
-									_elm_lang$html$Html$div,
-									{ctor: '[]'},
-									{
-										ctor: '::',
-										_0: _user$project$Recipes_List$detailBtn(recipe),
-										_1: {ctor: '[]'}
-									}),
-								_1: {ctor: '[]'}
-							}
+							_1: {ctor: '[]'}
 						}
 					}
 				}),
@@ -88,26 +77,15 @@ var _user$project$Recipes_List$recipeBox = function (recipe) {
 };
 var _user$project$Recipes_List$filterList = F2(
 	function (recipes, query) {
-		var filterRecipes = function () {
-			var filterByName = A2(
-				_elm_lang$core$List$filter,
-				function (r) {
-					return A2(
-						_elm_lang$core$String$contains,
-						_elm_lang$core$String$toLower(query),
-						_elm_lang$core$String$toLower(r.name));
-				},
-				recipes);
-			return A2(
-				_elm_lang$core$List$filter,
-				function (r) {
-					return A2(
-						_elm_lang$core$String$contains,
-						_elm_lang$core$String$toLower(query),
-						_elm_lang$core$String$toLower(r.ingredients));
-				},
-				recipes);
-		}();
+		var filterRecipes = A2(
+			_elm_lang$core$List$filter,
+			function (r) {
+				return A2(
+					_elm_lang$core$String$contains,
+					_elm_lang$core$String$toLower(query),
+					_elm_lang$core$String$toLower(r.name));
+			},
+			recipes);
 		return A2(
 			_elm_lang$html$Html$div,
 			{
@@ -185,7 +163,7 @@ var _user$project$Recipes_List$nav = A2(
 	_elm_lang$html$Html$div,
 	{
 		ctor: '::',
-		_0: _elm_lang$html$Html_Attributes$class('clearfix mb2 white bg-black'),
+		_0: _elm_lang$html$Html_Attributes$class('clearfix mb2 bg-olive'),
 		_1: {ctor: '[]'}
 	},
 	{

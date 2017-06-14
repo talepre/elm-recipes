@@ -1,18 +1,34 @@
 var _user$project$Models$initialModel = F3(
 	function (route, query, recipe) {
-		return {recipes: _krisajenkins$remotedata$RemoteData$Loading, route: route, query: query, newRecipe: recipe};
+		return {recipes: _krisajenkins$remotedata$RemoteData$Loading, route: route, query: query, newRecipe: recipe, ingredients: _krisajenkins$remotedata$RemoteData$Loading, units: _krisajenkins$remotedata$RemoteData$Loading};
 	});
-var _user$project$Models$Model = F4(
-	function (a, b, c, d) {
-		return {recipes: a, route: b, query: c, newRecipe: d};
+var _user$project$Models$Model = F6(
+	function (a, b, c, d, e, f) {
+		return {recipes: a, route: b, query: c, newRecipe: d, ingredients: e, units: f};
 	});
-var _user$project$Models$Recipe = F4(
-	function (a, b, c, d) {
-		return {id: a, name: b, ingredients: c, description: d};
+var _user$project$Models$Recipe = F5(
+	function (a, b, c, d, e) {
+		return {id: a, name: b, ingredients: c, description: d, directions: e};
 	});
-var _user$project$Models$NewRecipe = F3(
+var _user$project$Models$IngredientInfo = F3(
 	function (a, b, c) {
-		return {name: a, ingredients: b, description: c};
+		return {ingredientId: a, unitId: b, amount: c};
+	});
+var _user$project$Models$DisplayIngredientInfo = F3(
+	function (a, b, c) {
+		return {ingredient: a, unit: b, amount: c};
+	});
+var _user$project$Models$NewRecipe = F2(
+	function (a, b) {
+		return {name: a, description: b};
+	});
+var _user$project$Models$Ingredient = F2(
+	function (a, b) {
+		return {id: a, name: b};
+	});
+var _user$project$Models$Unit = F2(
+	function (a, b) {
+		return {id: a, name: b};
 	});
 var _user$project$Models$NotFoundRoute = {ctor: 'NotFoundRoute'};
 var _user$project$Models$AddRecipeRoute = {ctor: 'AddRecipeRoute'};

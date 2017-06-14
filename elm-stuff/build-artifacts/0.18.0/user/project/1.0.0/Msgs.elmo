@@ -1,3 +1,9 @@
+var _user$project$Msgs$OnFetchUnits = function (a) {
+	return {ctor: 'OnFetchUnits', _0: a};
+};
+var _user$project$Msgs$OnFetchIngredients = function (a) {
+	return {ctor: 'OnFetchIngredients', _0: a};
+};
 var _user$project$Msgs$OnRecipeDelete = function (a) {
 	return {ctor: 'OnRecipeDelete', _0: a};
 };
@@ -10,9 +16,6 @@ var _user$project$Msgs$OnRecipeSave = function (a) {
 var _user$project$Msgs$AddRecipe = {ctor: 'AddRecipe'};
 var _user$project$Msgs$Description = function (a) {
 	return {ctor: 'Description', _0: a};
-};
-var _user$project$Msgs$Ingredients = function (a) {
-	return {ctor: 'Ingredients', _0: a};
 };
 var _user$project$Msgs$Name = function (a) {
 	return {ctor: 'Name', _0: a};
