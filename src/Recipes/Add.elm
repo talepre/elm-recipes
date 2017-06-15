@@ -30,9 +30,9 @@ form newRecipe =
         div[class "col col-3 m2"]
             [input [ class "input", type_ "text", placeholder "Navn", onInput Msgs.Name ] []
             , input [ class "input", type_ "text", placeholder "Beskrivelse", onInput Msgs.Description ] []
-            , input [ class "input", type_ "text", placeholder "Ingredienser" ] []
-            , input [ class "input", type_ "text", placeholder "Framgangsmåte" ] []
-            , a [class "btn regular btn-outline olive col-12", href recipesPath, onClick Msgs.AddRecipe][text "Lagre"] ]
+            , input [ class "input", type_ "text", placeholder "Ingredienser", onInput Msgs.Ingredients ] []
+            , input [ class "input", type_ "text", placeholder "Framgangsmåte", onInput Msgs.Directions ] []
+            , a [ class "btn regular btn-outline olive col-12", href recipesPath, onClick Msgs.AddRecipe ][text "Lagre"] ]
         
         , div[class "col col-6"][]]
 

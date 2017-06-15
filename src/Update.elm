@@ -36,6 +36,22 @@ update msg model =
                     { preNewRecipe | description = newDescription }           
             in
                 ( {model | newRecipe = newRecipe}, Cmd.none )
+        Msgs.Directions newDirections ->
+            let
+                preNewRecipe =
+                    model.newRecipe
+                newRecipe =
+                    { preNewRecipe | directions = newDirections }           
+            in
+                ( {model | newRecipe = newRecipe}, Cmd.none )
+        Msgs.Ingredients newIngredients ->
+            let
+                preNewRecipe =
+                    model.newRecipe
+                newRecipe =
+                    { preNewRecipe | ingredients = newIngredients }           
+            in
+                ( {model | newRecipe = newRecipe}, Cmd.none )
         Msgs.AddRecipe ->
             let
                 newRecipe =

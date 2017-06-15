@@ -55,6 +55,13 @@
       "description": "Myk brownie med sjokoladebiter",
       "id": "Byr6Hz3f-",
       "directions": "Bland sammen ingrediensene. Stek i ovn på 200 grader"
+    },
+    {
+      "name": "Blomkålsuppe",
+      "description": "Deilig blomkålsuppe",
+      "directions": "kok opp blomkålen, bruk stavmikser, tilsett buljong. Smak til med salt og pepper",
+      "ingredients": "1 blomkål, 2 dl buljong",
+      "id": "SJIzHJgX-"
     }
   ]
 }

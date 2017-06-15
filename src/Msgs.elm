@@ -12,6 +12,8 @@ type Msg
     | Query String
     | Name String
     | Description String
+    | Ingredients String
+    | Directions String
     | AddRecipe
     | OnRecipeSave (Result Http.Error Recipe)
     | DeleteRecipe Recipe
