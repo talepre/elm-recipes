@@ -18,7 +18,7 @@ type Msg
     | OnRecipeDelete (Result Http.Error Bool)
     | OnFetchIngredients (WebData (List Ingredient))
     | OnFetchUnits (WebData (List Unit))
-    | AddIngredientField
-    | UnitId String
-    | IngredientId String
-    | Amount String
+    | AddIngredientNewRecipe
+    | UnitId Int String
+    | IngredientId Int String
+    | Amount Int String

@@ -30,19 +30,19 @@ form newRecipe =
         div[class "col col-3 m2"]
             [input [ class "input", type_ "text", placeholder "Navn", onInput Msgs.Name ] []
             , input [ class "input", type_ "text", placeholder "Beskrivelse", onInput Msgs.Description ] []
-            , div [ class "btn regular btn-outline olive col-12", onClick Msgs.AddIngredientField ][text "Legg til ingrediens"]
-            , div [] (List.map addInputField (newRecipe.ingredients))
+            , div [ class "btn regular btn-outline olive col-12", onClick Msgs.AddIngredientNewRecipe ][text "Legg til ingrediens"]
+            , div [] (List.map (addInputField (List.length newRecipe.ingredients)) newRecipe.ingredients)
             , input [ class "input", type_ "text", placeholder "Framgangsmåte" ] []
             , a [class "btn regular btn-outline olive col-12", href recipesPath, onClick Msgs.AddRecipe][text "Lagre"] ]
         
         , div[class "col col-6"][]]
 
-addInputField : IngredientInfo -> Html Msg
-addInputField ingredientInfo = 
+addInputField : Int -> IngredientInfo -> Html Msg
+addInputField ingredientNumber ingredientInfo = 
     div [][
-    input[class "col-3", type_ "text", placeholder "Mengde", onInput Msgs.Amount][],
-    input[class "col-3", type_ "text", placeholder "Benevning", onInput Msgs.UnitId][],
-    input[class "col-3", type_ "text", placeholder "Ingrediens", onInput Msgs.IngredientId][]]
+    input[class "col-4", type_ "text", placeholder "Mengde", onInput (Msgs.Amount ingredientNumber)][],
+    input[class "col-4", type_ "text", placeholder "Benevning", onInput (Msgs.UnitId ingredientNumber)][],
+    input[class "col-4", type_ "text", placeholder "Ingrediens", onInput (Msgs.IngredientId ingredientNumber)][]]
 
 listBtn : Html Msg
 listBtn =

@@ -5,6 +5,7 @@ import Routing exposing (parseLocation)
 import Models exposing (Model, Recipe)
 import Commands exposing (saveRecipeCmd, deleteRecipeCmd, fetchRecipes)
 import RemoteData exposing (WebData)
+import Debug exposing (log)
 
 update : Msg -> Model -> ( Model, Cmd Msg )
 update msg model =
@@ -56,7 +57,7 @@ update msg model =
             ( { model | ingredients = response }, Cmd.none )
         Msgs.OnFetchUnits response ->
             ( { model | units = response }, Cmd.none )
-        Msgs.AddIngredientField ->
+        Msgs.AddIngredientNewRecipe ->
             let
                 newRecipe =
                     model.newRecipe
@@ -71,11 +72,15 @@ update msg model =
                     { newRecipe | ingredients = newIngredientList }
             in
                 ( { model | newRecipe = updatedNewRecipe }, Cmd.none )
-        Msgs.UnitId newUnitId ->
+        Msgs.UnitId index newUnitId ->
+            let 
+                _ =
+                    Debug.log "ingredient" index
+            in
+                ( model, Cmd.none )
+        Msgs.IngredientId index newIngredientId ->
             ( model, Cmd.none )
-        Msgs.IngredientId newIngredientId ->
-            ( model, Cmd.none )
-        Msgs.Amount newAmount ->
+        Msgs.Amount index newAmount ->
             ( model, Cmd.none )
                     
 
