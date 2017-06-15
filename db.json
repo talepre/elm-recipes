@@ -3,200 +3,58 @@
     {
       "id": "1",
       "name": "Banan is",
-      "ingredients": [
-        {
-          "ingredientId": "3",
-          "unitId": "1",
-          "amount": 1
-        },
-        {
-          "ingredientId": "4",
-          "unitId": "2",
-          "amount": 2
-        }
-      ],
+      "ingredients": "Banan, vann",
       "description": "Enkel softis med kun banan og vann",
       "directions": "Frys bananen, miks sammen med miksmaster"
     },
     {
       "id": "2",
       "name": "Banan is",
-      "ingredients": [
-        {
-          "ingredientId": "3",
-          "unitId": "1",
-          "amount": 1
-        },
-        {
-          "ingredientId": "4",
-          "unitId": "2",
-          "amount": 2
-        }
-      ],
+      "ingredients": "Banan, vann",
       "description": "Enkel softis med kun banan og vann",
       "directions": "Frys bananen, miks sammen med miksmaster"
     },
     {
       "id": "3",
       "name": "Banan is",
-      "ingredients": [
-        {
-          "ingredientId": "3",
-          "unitId": "1",
-          "amount": 1
-        },
-        {
-          "ingredientId": "4",
-          "unitId": "2",
-          "amount": 2
-        }
-      ],
+      "ingredients": "Banan, vann",
       "description": "Enkel softis med kun banan og vann",
       "directions": "Frys bananen, miks sammen med miksmaster"
     },
     {
       "id": "4",
       "name": "Banan is",
-      "ingredients": [
-        {
-          "ingredientId": "3",
-          "unitId": "1",
-          "amount": 1
-        },
-        {
-          "ingredientId": "4",
-          "unitId": "2",
-          "amount": 2
-        }
-      ],
+      "ingredients": "Banan, vann",
       "description": "Enkel softis med kun banan og vann",
       "directions": "Frys bananen, miks sammen med miksmaster"
     },
     {
       "id": "5",
       "name": "Banan is",
-      "ingredients": [
-        {
-          "ingredientId": "3",
-          "unitId": "1",
-          "amount": 1
-        },
-        {
-          "ingredientId": "4",
-          "unitId": "2",
-          "amount": 2
-        }
-      ],
+      "ingredients": "Banan, vann",
       "description": "Enkel softis med kun banan og vann",
       "directions": "Frys bananen, miks sammen med miksmaster"
     },
     {
       "id": "6",
       "name": "Banan is",
-      "ingredients": [
-        {
-          "ingredientId": "3",
-          "unitId": "1",
-          "amount": 1
-        },
-        {
-          "ingredientId": "4",
-          "unitId": "2",
-          "amount": 2
-        }
-      ],
+      "ingredients": "Banan, vann",
       "description": "Enkel softis med kun banan og vann",
       "directions": "Frys bananen, miks sammen med miksmaster"
     },
     {
       "id": "7",
       "name": "Sjokoladeboller",
-      "ingredients": [
-        {
-          "ingredientId": "2",
-          "unitId": "1",
-          "amount": 1
-        },
-        {
-          "ingredientId": "5",
-          "unitId": "2",
-          "amount": 2
-        },
-        {
-          "ingredientId": "7",
-          "unitId": "2",
-          "amount": 2
-        }
-      ],
+      "ingredients": "Sjokolade, kokos, melis",
       "description": "Konfektboller med kokos",
       "directions": "Bland sammen i miksmaster og rull til boller"
     },
     {
       "name": "Brownie",
-      "ingredients": [
-        {
-          "ingredientId": "6",
-          "unitId": "1",
-          "amount": 1
-        },
-        {
-          "ingredientId": "5",
-          "unitId": "2",
-          "amount": 2
-        },
-        {
-          "ingredientId": "7",
-          "unitId": "2",
-          "amount": 2
-        }
-      ],
+      "ingredients": "Sjokolade, mel, egg",
       "description": "Myk brownie med sjokoladebiter",
       "id": "Byr6Hz3f-",
       "directions": "Bland sammen ingrediensene. Stek i ovn på 200 grader"
-    }
-  ],
-  "ingredients": [
-    {
-      "id": "1",
-      "name": "Kyllingfilet"
-    },
-    {
-      "id": "2",
-      "name": "Egg"
-    },
-    {
-      "id": "3",
-      "name": "Banan"
-    },
-    {
-      "id": "4",
-      "name": "Vann"
-    },
-    {
-      "id": "5",
-      "name": "Melis"
-    },
-    {
-      "id": "6",
-      "name": "Kokos"
-    },
-    {
-      "id": "7",
-      "name": "Sjokolade"
-    }
-  ],
-  "units": [
-    {
-      "id": "1",
-      "name": "stk"
-    },
-    {
-      "id": "2",
-      "name": "ss"
-    },
-    {
-      "id": "3",
-      "name": "dl"
     }
   ]
 }

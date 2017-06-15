@@ -53,35 +53,6 @@ update msg model =
             (model, Cmd.none)
         Msgs.OnRecipeDelete (Err error) ->
             (model, Cmd.none)
-        Msgs.OnFetchIngredients response ->
-            ( { model | ingredients = response }, Cmd.none )
-        Msgs.OnFetchUnits response ->
-            ( { model | units = response }, Cmd.none )
-        Msgs.AddIngredientNewRecipe ->
-            let
-                newRecipe =
-                    model.newRecipe
-                emptyIngredient =
-                    [{ ingredientId = "",
-                    unitId = "",
-                    amount = 0
-                    }]
-                newIngredientList =
-                    newRecipe.ingredients ++ emptyIngredient
-                updatedNewRecipe =
-                    { newRecipe | ingredients = newIngredientList }
-            in
-                ( { model | newRecipe = updatedNewRecipe }, Cmd.none )
-        Msgs.UnitId index newUnitId ->
-            let 
-                _ =
-                    Debug.log "ingredient" index
-            in
-                ( model, Cmd.none )
-        Msgs.IngredientId index newIngredientId ->
-            ( model, Cmd.none )
-        Msgs.Amount index newAmount ->
-            ( model, Cmd.none )
                     
 
 updateRecipe : Recipe -> Model -> Model

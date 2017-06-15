@@ -1,7 +1,7 @@
 module Msgs exposing (..)
 
 import Http
-import Models exposing (Recipe, Ingredient, Unit)
+import Models exposing (Recipe)
 import Navigation exposing (Location)
 import RemoteData exposing (WebData)
 
@@ -16,9 +16,3 @@ type Msg
     | OnRecipeSave (Result Http.Error Recipe)
     | DeleteRecipe Recipe
     | OnRecipeDelete (Result Http.Error Bool)
-    | OnFetchIngredients (WebData (List Ingredient))
-    | OnFetchUnits (WebData (List Unit))
-    | AddIngredientNewRecipe
-    | UnitId Int String
-    | IngredientId Int String
-    | Amount Int String

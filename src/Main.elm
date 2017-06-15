@@ -1,6 +1,6 @@
 module Main exposing (..)
 
-import Commands exposing (fetchRecipes, fetchIngredients, fetchUnits)
+import Commands exposing (fetchRecipes)
 import Models exposing (Model, initialModel)
 import Msgs exposing (Msg)
 import Navigation exposing (Location)
@@ -15,12 +15,12 @@ init location =
             Routing.parseLocation location
         emptyRecipe =
             { name = ""
-            , ingredients = []
+            , ingredients = ""
             , description = ""
             , directions = ""
             }
     in
-        ( initialModel currentRoute "" emptyRecipe, Cmd.batch [fetchRecipes, fetchIngredients, fetchUnits])
+        ( initialModel currentRoute "" emptyRecipe, fetchRecipes)
 
 
 subscriptions : Model -> Sub Msg
