@@ -11,18 +11,32 @@ import Routing exposing (recipePath, recipesPath, addRecipePath)
 
 view : Model-> Html Msg
 view model =
-    div []
-        [ nav
+    div [ class "list"]
+        [ header
+        , nav model
         , maybeList model.recipes model
         ]
 
+header : Html Msg
+header =
+    div [ class "header header-line"]
+    [text "Oppskrifter"]
 
-nav : Html Msg
-nav =
-    div [ class "clearfix mb2 bg-olive" ]
-        [a [ class "left p2 white", href recipesPath ] [ text "Oppskrifter" ],
-         a [ class "left p2 white", href addRecipePath ] [ text "Legg til oppskrift" ]
+nav : Model -> Html Msg
+nav model =
+    div [ class "navigation" ]
+        [searchField model,
+         a [ class "nav-link", href addRecipePath] [ text "Legg til oppskrift" ]
         ]
+
+searchField : Model -> Html Msg
+searchField model = 
+    span[][
+        input [ class "searchField"
+            , placeholder "Søk... "
+            , value model.query
+            , onInput Msgs.Query
+            , autofocus True] []]
 
 maybeList : WebData (List Recipe) -> Model -> Html Msg
 maybeList response model =
@@ -34,55 +48,26 @@ maybeList response model =
             text "Loading..."
 
         RemoteData.Success recipes ->
-            list recipes model
+            list recipes model.query
 
         RemoteData.Failure error ->
             text (toString error)
 
 
-list : List Recipe -> Model -> Html Msg
-list recipes model =
-    div[][
-        div [class "clearfix"]
-        [input
-            [class "mx-auto input col-3"
-            , placeholder "Søk... "
-            , value model.query
-            , onInput Msgs.Query
-            , autofocus True] []   
-        ], filterList recipes model.query
-        ]
-
-filterList : List Recipe -> Query -> Html Msg
-filterList recipes query =
+list : List Recipe -> Query -> Html Msg
+list recipes query =
     let
         filterRecipes =
             List.filter (\r -> (String.contains (String.toLower query) (String.toLower r.name))) recipes
     in
-        div [ class "flex flex-wrap"](List.map recipeBox filterRecipes)
+        div [class "recipes"](List.map recipeBox filterRecipes)
         
             
 
 recipeBox : Recipe -> Html Msg
 recipeBox recipe =
-    div [ class "col-2 p2" ]
-        [ div [class "overflow-hidden border border-olive"]    
-            [ div [class "caps bold bg-olive white"] [ text recipe.name]
-            , div [] [ text recipe.description ]
-            , div [] [ detailBtn recipe ]
+    span [class "recipe-box"]    
+            [ a [ class "recipe-header", href (recipePath recipe.id) ] [ text recipe.name]
+            , div [class "recipe-description"] [ text recipe.description ]
             ]
             
-        ]
-    
-
-detailBtn : Recipe -> Html.Html Msg
-detailBtn recipe =
-    let
-        path =
-            recipePath recipe.id
-    in
-        a
-            [ class "btn regular"
-            , href path
-            ]
-            [ text "Detaljer" ]

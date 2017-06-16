@@ -1,6 +1,7 @@
 module View exposing (..)
 
 import Html exposing (Html, div, text)
+import Html.Attributes exposing (class)
 import Models exposing (Model, RecipeId)
 import Msgs exposing (Msg)
 import Recipes.Details
@@ -11,7 +12,7 @@ import RemoteData
 
 view : Model -> Html Msg
 view model =
-    div [ ]
+    div [ class "content "]
         [ page model ]
 
 

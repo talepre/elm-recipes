@@ -62,6 +62,13 @@
       "directions": "kok opp blomkålen, bruk stavmikser, tilsett buljong. Smak til med salt og pepper",
       "ingredients": "1 blomkål, 2 dl buljong",
       "id": "SJIzHJgX-"
+    },
+    {
+      "name": "Omelett",
+      "description": "Luftig omelett med grønnsaker",
+      "directions": "Bland sammen alle ingrediensene. Stek i panne med smør(viktig!) på lav varme. Legg lokk over slik at den blir varmet på begge sider.",
+      "ingredients": "2 egg, 2 ss melk, 2 skinkeskiver, litt revet ost, paprika",
+      "id": "BJn6kzW7W"
     }
   ]
 }
