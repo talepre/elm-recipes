@@ -1,3 +1,75 @@
  a {
   text-decoration: none; /* no underline */
+  color: black;
  }
+
+ a:hover {
+ 	text-decoration: underline;
+ }
+
+@font-face {
+	font-family: 'Noteworthy Light';
+	font-style: normal;
+	font-weight: normal;
+	src: local('Noteworthy Light'), url('Noteworthy-Lt.woff') format('woff');
+}
+
+body {
+	font-family: 'Noteworthy Light';
+}
+
+.header {
+	font-size: 80px;
+	text-align: center;
+	padding-bottom: 10px;
+}
+
+.header-line {
+	border-bottom: 1px solid;
+	border-color: black;
+}
+
+.navigation {
+	font-size: 27px;
+	text-align: center;
+	margin: 10px;
+
+}
+
+.nav-link {
+	margin: 10px;
+}
+
+.searchField {
+	font-size: 22px;
+	margin: 5px;
+	text-align: center;
+	width: 20%;
+}
+
+input {
+	padding:5px; 
+    border:2px solid #ccc; 
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+    font-family: 'Noteworthy Light';
+}
+
+.recipes {
+	text-align: center;;
+}
+
+.recipe-box {
+	display: inline-block;
+	width: 23%;
+	margin: 10px;
+	text-align: center;
+}
+
+.recipe-header {
+	border-bottom: 1px solid black;
+}
+
+.recipe-description {
+	padding: 5px;
+}
